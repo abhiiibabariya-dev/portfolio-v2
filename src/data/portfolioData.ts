@@ -77,7 +77,7 @@ export const PROFILE = {
   phone: "+91 7096293699",
   linkedin: "https://www.linkedin.com/in/babariya-abhishek-0085691b4/",
   github: "https://github.com/abhiiibabariya-dev",
-  resumeUrl: "/portfolio/resume/resume.pdf",
+  resumeUrl: "/portfolio-v2/resume/resume.pdf",
   status: "DFIR · INCIDENT RESPONSE · SECURITY OPERATIONS",
   stats: [
     { value: "100+", label: "Daily Alerts Triaged", sub: "CrowdStrike & Sysmon" },

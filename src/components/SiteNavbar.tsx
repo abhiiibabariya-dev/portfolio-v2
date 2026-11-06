@@ -1,35 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { ExternalLink, Github, Linkedin, Menu, Terminal, X } from 'lucide-react';
+import { ArrowUpRight, Menu, Minus, X } from 'lucide-react';
 import { PROFILE } from '../data/portfolioData';
 
-const navLinks = [
-  { to: '/about', label: 'ABOUT' },
-  { to: '/experience', label: 'EXPERIENCE' },
-  { to: '/projects', label: 'PROJECTS' },
-  { to: '/visualizations', label: 'SOC LAB' },
-  { to: '/skills', label: 'SKILLS' },
-  { to: '/certifications', label: 'CERTIFICATIONS' },
-  { to: '/education', label: 'EDUCATION' },
-  { to: '/recruiter', label: 'RECRUITER' },
-  { to: '/contact', label: 'CONTACT' },
-];
+const links = [{to:'/about',label:'About'},{to:'/experience',label:'Experience'},{to:'/projects',label:'Work'},{to:'/skills',label:'Skills'},{to:'/contact',label:'Contact'}];
 export const SiteNavbar: React.FC = () => {
-  const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
-  useEffect(() => { const onScroll = () => setScrolled(window.scrollY > 40); window.addEventListener('scroll', onScroll, { passive: true }); return () => window.removeEventListener('scroll', onScroll); }, []);
-  useEffect(() => { setOpen(false); }, [location.pathname]);
-  useEffect(() => { if (!open) return; const close = (event: KeyboardEvent) => { if (event.key === 'Escape') setOpen(false); }; document.addEventListener('keydown', close); return () => document.removeEventListener('keydown', close); }, [open]);
-  const navClass = ({ isActive }: { isActive: boolean }) => `px-2.5 py-1.5 font-mono text-[10px] tracking-wider transition-colors ${isActive ? 'text-[#c8a96b]' : 'text-[#8a8a96] hover:text-[#f0efea]'}`;
-  return <>
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#0a0a0b]/95 backdrop-blur-md border-b border-[#1e1e22]' : 'bg-[#0a0a0b]/75 backdrop-blur-sm'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
-        <NavLink to="/" className="flex items-center gap-2.5 group shrink-0" aria-label={`${PROFILE.handle} home`}><span className="w-7 h-7 border border-[#c8a96b]/60 flex items-center justify-center text-[#c8a96b] font-mono text-[10px] font-bold">AS</span><span className="font-mono text-sm font-bold tracking-widest text-[#f0efea] group-hover:text-[#c8a96b] hidden sm:block">{PROFILE.handle}</span><span className="flex items-center gap-1 font-mono text-[9px] text-[#4ade80]"><span className="w-1.5 h-1.5 rounded-full bg-[#4ade80] animate-pulse" /> ONLINE</span></NavLink>
-        <nav className="hidden xl:flex items-center gap-0.5" aria-label="Primary navigation">{navLinks.map(link => <NavLink key={link.to} to={link.to} className={navClass}>{link.label}</NavLink>)}</nav>
-        <div className="flex items-center gap-1.5 shrink-0"><NavLink to="/terminal" className={({ isActive }) => `w-8 h-8 flex items-center justify-center ${isActive ? 'text-[#c8a96b]' : 'text-[#8a8a96] hover:text-[#f0efea]'}`} aria-label="Open portfolio terminal"><Terminal size={15} /></NavLink><a href={PROFILE.github} target="_blank" rel="noreferrer" className="hidden sm:flex w-8 h-8 items-center justify-center text-[#8a8a96] hover:text-[#f0efea]" aria-label="GitHub"><Github size={15} /></a><a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className="hidden sm:flex w-8 h-8 items-center justify-center text-[#8a8a96] hover:text-[#f0efea]" aria-label="LinkedIn"><Linkedin size={15} /></a><NavLink to="/resume" className="hidden md:flex items-center gap-1.5 px-3 py-1.5 border border-[#c8a96b]/40 text-[#c8a96b] font-mono text-[10px] hover:bg-[#c8a96b]/10"><ExternalLink size={10} /> RESUME</NavLink><button onClick={() => setOpen(value => !value)} className="xl:hidden w-8 h-8 flex items-center justify-center text-[#8a8a96] hover:text-[#f0efea]" aria-label={open ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={open}>{open ? <X size={18} /> : <Menu size={18} />}</button></div>
-      </div>
-    </header>
-    {open && <div className="fixed inset-0 z-40 xl:hidden" role="dialog" aria-label="Mobile navigation"><button className="absolute inset-0 w-full h-full bg-[#0a0a0b]/95 backdrop-blur-xl cursor-default" aria-label="Close menu" onClick={() => setOpen(false)} /><div className="relative z-10 pt-20 px-6 pb-8 h-full flex flex-col"><nav className="flex flex-col" aria-label="Mobile navigation">{navLinks.map(link => <NavLink key={link.to} to={link.to} className={({ isActive }) => `py-3.5 border-b border-[#1e1e22] font-mono text-sm tracking-wider ${isActive ? 'text-[#c8a96b]' : 'text-[#8a8a96]'}`}>{link.label}</NavLink>)}</nav><div className="mt-auto space-y-4"><div className="grid grid-cols-2 gap-2"><NavLink to="/schedule" className="text-center border border-[#c8a96b]/40 text-[#c8a96b] py-3 font-mono text-xs">SCHEDULE</NavLink><NavLink to="/verify" className="text-center border border-[#1e1e22] text-[#8a8a96] py-3 font-mono text-xs">VERIFY</NavLink></div><NavLink to="/resume" className="flex justify-center items-center gap-2 py-3 border border-[#c8a96b]/50 text-[#c8a96b] font-mono text-sm"><ExternalLink size={14} /> RESUME</NavLink><div className="flex justify-center gap-5"><a href={PROFILE.github} target="_blank" rel="noreferrer" className="text-[#8a8a96]"><Github size={16} /></a><a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className="text-[#8a8a96]"><Linkedin size={16} /></a></div></div></div></div>}
-  </>;
+  const [open,setOpen]=useState(false); const [motion,setMotion]=useState(true); const [scrolled,setScrolled]=useState(false); const location=useLocation();
+  useEffect(()=>{ const saved=localStorage.getItem('portfolio-v2-motion'); if(saved==='off') setMotion(false); const onScroll=()=>setScrolled(window.scrollY>30); window.addEventListener('scroll',onScroll,{passive:true}); return()=>window.removeEventListener('scroll',onScroll); },[]);
+  useEffect(()=>{ document.documentElement.dataset.motion=motion?'on':'off'; localStorage.setItem('portfolio-v2-motion',motion?'on':'off'); },[motion]);
+  useEffect(()=>setOpen(false),[location.pathname]);
+  useEffect(()=>{ if(!open)return; const onKey=(e:KeyboardEvent)=>{if(e.key==='Escape')setOpen(false)}; document.addEventListener('keydown',onKey); return()=>document.removeEventListener('keydown',onKey); },[open]);
+  return <header className={`fixed top-0 left-0 right-0 z-50 transition-all ${scrolled?'border-b border-[#2a2827] bg-[#090909]/92 backdrop-blur-xl':'bg-transparent'}`}>
+    <div className="mx-auto flex h-20 max-w-[1240px] items-center justify-between px-5 sm:px-8">
+      <NavLink to="/" className="group flex items-center gap-3" aria-label={`${PROFILE.name} home`}><span className="flex h-9 w-9 items-center justify-center bg-[#e32b3c] font-display text-lg text-white">AB</span><span className="hidden text-xs font-extrabold uppercase tracking-[.18em] text-[#f2efeb] sm:block">{PROFILE.handle}</span></NavLink>
+      <nav className="hidden items-center gap-7 md:flex" aria-label="Primary navigation">{links.map(link=><NavLink key={link.to} to={link.to} className={({isActive})=>`relative text-[11px] font-bold uppercase tracking-[.12em] transition-colors after:absolute after:-bottom-2 after:left-0 after:h-px after:bg-[#e32b3c] after:transition-all ${isActive?'text-[#f2efeb] after:w-full':'text-[#a09c9a] after:w-0 hover:text-[#f2efeb] hover:after:w-full'}`}>{link.label}</NavLink>)}</nav>
+      <div className="flex items-center gap-2"><button onClick={()=>setMotion(v=>!v)} className="hidden items-center gap-2 px-3 py-2 text-[10px] font-bold uppercase tracking-[.12em] text-[#a09c9a] transition hover:text-[#f2efeb] sm:flex" aria-pressed={!motion}><span className={`h-1.5 w-1.5 rounded-full ${motion?'bg-[#e32b3c]':'bg-[#a09c9a]'}`} /> Motion {motion?'On':'Off'}</button><NavLink to="/contact" className="hidden items-center gap-1 border border-[#e32b3c] px-4 py-2 text-[10px] font-extrabold uppercase tracking-[.12em] text-[#e32b3c] transition hover:bg-[#e32b3c] hover:text-white sm:flex">Let’s talk <ArrowUpRight size={13}/></NavLink><button className="flex h-11 w-11 items-center justify-center text-[#f2efeb] md:hidden" onClick={()=>setOpen(v=>!v)} aria-expanded={open} aria-label={open?'Close menu':'Open menu'}>{open?<X/>:<Menu/>}</button></div>
+    </div>
+    {open&&<div className="fixed inset-0 top-20 z-40 bg-[#090909] px-5 py-8 md:hidden"><nav className="flex flex-col" aria-label="Mobile navigation">{links.map((link,index)=><NavLink key={link.to} to={link.to} className="flex items-center justify-between border-b border-[#2a2827] py-5 text-4xl font-display uppercase" onClick={()=>setOpen(false)}><span><span className="mr-4 font-body text-xs text-[#e32b3c]">0{index+1}</span>{link.label}</span><ArrowUpRight size={24}/></NavLink>)}</nav><button onClick={()=>setMotion(v=>!v)} className="mt-8 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#a09c9a]"><Minus size={14} className={motion?'text-[#e32b3c]':'text-[#a09c9a]'}/> Motion {motion?'enabled':'disabled'}</button></div>}
+  </header>;
 };

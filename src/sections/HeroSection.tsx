@@ -101,7 +101,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onNavigate, onOpenTerm
           {/* Right Column: Cinematic Cyber Portrait Composition */}
           <div className="lg:col-span-5 flex justify-center items-center">
             <HeroCyberComposition
-              portraitUrl="/portfolio/images/hero/portrait.webp"
+              portraitUrl="/portfolio-v2/images/hero/portrait.webp"
               onOpenTerminal={onOpenTerminal}
             />
           </div>

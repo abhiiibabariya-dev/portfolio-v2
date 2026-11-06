@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowLeft, Download, ExternalLink } from 'lucide-react';
 import { CASE_STUDIES, CERTIFICATIONS, EDUCATION, EXPERIENCES, PROFILE, SKILL_CATEGORIES } from '../data/portfolioData';
 
-const resumeUrl = '/portfolio/resume/resume.pdf';
+const resumeUrl = '/portfolio-v2/resume/resume.pdf';
 
 export const ResumePage: React.FC = () => (
   <div className="min-h-screen pt-14">

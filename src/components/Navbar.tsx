@@ -109,7 +109,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
               <Linkedin size={16} />
             </a>
             <a
-              href="/portfolio/resume/resume.pdf"
+              href="/portfolio-v2/resume/resume.pdf"
               target="_blank" rel="noreferrer"
               className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 border border-[#c8a96b]/40 text-[#c8a96b] font-mono text-xs hover:bg-[#c8a96b]/10 transition-all"
             >
@@ -145,7 +145,7 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
             </nav>
             <div className="mt-auto flex flex-col gap-3">
               <a
-                href="/portfolio/resume/resume.pdf"
+                href="/portfolio-v2/resume/resume.pdf"
                 target="_blank" rel="noreferrer"
                 className="flex items-center justify-center gap-2 py-3 border border-[#c8a96b]/50 text-[#c8a96b] font-mono text-sm hover:bg-[#c8a96b]/10 transition-all"
               >

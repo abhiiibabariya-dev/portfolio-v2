@@ -83,7 +83,7 @@ export const Contact: React.FC = () => {
                 </span>
               </a>
               <a
-                href="/portfolio/resume/resume.pdf"
+                href="/portfolio-v2/resume/resume.pdf"
                 target="_blank" rel="noreferrer"
                 className="flex items-center gap-3 p-3 border border-[#c8a96b]/30 bg-[#c8a96b]/5 hover:bg-[#c8a96b]/10 transition-all group"
               >

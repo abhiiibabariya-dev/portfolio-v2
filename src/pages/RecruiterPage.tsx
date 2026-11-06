@@ -63,7 +63,7 @@ export const RecruiterPage: React.FC = () => {
             </div>
           </div>
           <div className="flex flex-wrap gap-3 mt-8">
-            <a href="/portfolio/resume/resume.pdf" download className="inline-flex items-center gap-2 px-5 py-3 bg-[#c8a96b] text-[#0a0a0b] font-mono text-xs font-bold hover:bg-[#d4b87a]">
+            <a href="/portfolio-v2/resume/resume.pdf" download className="inline-flex items-center gap-2 px-5 py-3 bg-[#c8a96b] text-[#0a0a0b] font-mono text-xs font-bold hover:bg-[#d4b87a]">
               <Download size={13} /> DOWNLOAD RESUME
             </a>
             <Link to="/schedule" className="inline-flex items-center gap-2 px-5 py-3 border border-[#2a2a30] text-[#f0efea] font-mono text-xs font-bold hover:border-[#c8a96b]/50">

@@ -67,7 +67,7 @@ export const Hero: React.FC = () => {
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </button>
               <a
-                href="/portfolio/resume/resume.pdf"
+                href="/portfolio-v2/resume/resume.pdf"
                 target="_blank" rel="noreferrer"
                 className="flex items-center gap-2 px-6 py-3 border border-[#2a2a30] text-[#f0efea] font-mono text-xs font-bold tracking-wider hover:border-[#c8a96b]/50 hover:text-[#c8a96b] transition-all"
               >
@@ -106,7 +106,7 @@ export const Hero: React.FC = () => {
               {/* Photo container */}
               <div className="border border-[#1e1e22] bg-[#0f0f10] overflow-hidden aspect-[4/5] w-full max-w-[320px] mx-auto">
                 <img
-                  src="/portfolio/images/hero/portrait.png"
+                  src="/portfolio-v2/images/hero/portrait.png"
                   alt="Abhishek Babariya"
                   className="w-full h-full object-cover object-top"
                   loading="eager"

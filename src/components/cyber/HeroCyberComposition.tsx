@@ -7,7 +7,7 @@ interface HeroCyberCompositionProps {
 }
 
 export const HeroCyberComposition: React.FC<HeroCyberCompositionProps> = ({
-  portraitUrl = '/portfolio/images/hero/portrait.webp',
+  portraitUrl = '/portfolio-v2/images/hero/portrait.webp',
   onOpenTerminal
 }) => {
   const [imgLoaded, setImgLoaded] = useState(false);
