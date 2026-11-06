@@ -1,0 +1,12 @@
+import FadeIn from '../components/FadeIn';
+
+const SERVICES = [
+  { number:'01', name:'SIEM Engineering', description:'SIEM administration, onboarding, log-source integration, parser troubleshooting, correlation logic, detection tuning and operational dashboards.' },
+  { number:'02', name:'SOC Operations', description:'Alert triage, incident investigation, phishing and malware analysis, IOC enrichment, escalation and RCA documentation.' },
+  { number:'03', name:'DFIR', description:'Forensic acquisition, evidence preservation, artifact analysis, timeline reconstruction, memory and endpoint investigation and reporting.' },
+  { number:'04', name:'Threat Detection', description:'Detection engineering across Windows, Sysmon and Active Directory telemetry with MITRE ATT&CK mapping and threat-hunting workflows.' },
+  { number:'05', name:'Security Automation', description:'Python and PowerShell automation for repetitive SOC tasks, enrichment, parsing, response workflows and analyst productivity.' },
+  { number:'06', name:'Network Security', description:'Network troubleshooting and security analysis using Wireshark, TCPDump, Nmap, ACLs, segmentation, VPNs and firewall controls.' },
+];
+
+export default function ServicesSection(){return <section id="services" className="relative rounded-t-[36px] md:rounded-t-[50px] px-5 sm:px-8 md:px-10 py-20 md:py-28" style={{backgroundColor:'#F2F4F5'}}><FadeIn delay={0} y={40}><p className="uppercase tracking-[0.4em] text-xs md:text-sm text-center mb-5" style={{color:'#0C0C0C',opacity:0.55}}>Capabilities</p><h2 className="font-black uppercase leading-none tracking-tight text-center mb-14 md:mb-20" style={{color:'#0C0C0C',fontSize:'clamp(3rem,12vw,160px)'}}>What I Do</h2></FadeIn><div className="max-w-6xl mx-auto">{SERVICES.map((service,i)=><FadeIn key={service.number} delay={i*0.06}><div className="flex items-start gap-6 sm:gap-10 md:gap-14 py-8 md:py-11" style={{borderTop:'1px solid rgba(12,12,12,.15)'}}><span className="font-black leading-none" style={{color:'#0C0C0C',fontSize:'clamp(3rem,9vw,120px)'}}>{service.number}</span><div className="pt-2 md:pt-4"><h3 className="font-medium uppercase" style={{color:'#0C0C0C',fontSize:'clamp(1rem,2.4vw,2.1rem)'}}>{service.name}</h3><p className="font-light leading-relaxed mt-2 max-w-3xl" style={{color:'#0C0C0C',opacity:.62,fontSize:'clamp(.88rem,1.5vw,1.15rem)'}}>{service.description}</p></div></div></FadeIn>)}</div></section>}

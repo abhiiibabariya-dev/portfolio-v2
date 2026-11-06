@@ -1,0 +1,14 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowLeft, CheckCircle2, Github, Linkedin, FileText, Mail } from 'lucide-react';
+import { PROFILE } from '../data/portfolioData';
+
+const checks = [
+  { label: 'PORTFOLIO', value: 'ACTIVE', icon: CheckCircle2 },
+  { label: 'GITHUB', value: 'CONNECTED', icon: Github },
+  { label: 'LINKEDIN', value: 'CONNECTED', icon: Linkedin },
+  { label: 'RESUME', value: 'AVAILABLE', icon: FileText },
+  { label: 'CONTACT CHANNEL', value: 'ACTIVE', icon: Mail },
+];
+
+export const VerifyPage: React.FC = () => <div className="min-h-screen pt-14"><div className="max-w-3xl mx-auto px-4 sm:px-6 py-16"><Link to="/" className="inline-flex items-center gap-2 font-mono text-[10px] text-[#4a4a54] hover:text-[#c8a96b] mb-12 tracking-widest"><ArrowLeft size={11} /> HOME / VERIFY</Link><div className="border border-[#1e1e22] bg-[#0f0f10] p-6 sm:p-10"><div className="font-mono text-[11px] text-[#c8a96b] tracking-widest mb-3">IDENTITY VERIFICATION</div><h1 className="font-display text-4xl sm:text-5xl font-bold uppercase">Profile<br />Reference</h1><div className="mt-8 border-y border-[#1e1e22] py-5"><div className="font-mono text-[10px] text-[#4a4a54] tracking-widest">PROFILE OWNER</div><div className="text-xl text-[#f0efea] mt-2">{PROFILE.name}</div><div className="font-mono text-xs text-[#8a8a96] mt-1">{PROFILE.currentRole} · {PROFILE.currentOrg}</div></div><div className="grid sm:grid-cols-2 gap-3 mt-7">{checks.map(({ label, value, icon: Icon }) => <div key={label} className="border border-[#1e1e22] p-4 flex items-center gap-3"><Icon size={15} className={label === 'PORTFOLIO' ? 'text-[#4ade80]' : 'text-[#c8a96b]'} /><div><div className="font-mono text-[9px] text-[#4a4a54] tracking-widest">{label}</div><div className="font-mono text-[10px] text-[#8a8a96] mt-1">{value}</div></div></div>)}</div><p className="font-mono text-[10px] text-[#4a4a54] leading-relaxed mt-7">This page confirms the public portfolio identity and official contact destinations. It is not a security clearance or third-party credential verification service.</p><div className="flex flex-wrap gap-3 mt-7"><a href={PROFILE.linkedin} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-[#2a2a30] px-4 py-2 font-mono text-xs text-[#8a8a96] hover:text-[#c8a96b]"><Linkedin size={12} /> LINKEDIN</a><a href={PROFILE.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-[#2a2a30] px-4 py-2 font-mono text-xs text-[#8a8a96] hover:text-[#c8a96b]"><Github size={12} /> GITHUB</a><a href="/portfolio/resume/resume.pdf" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 border border-[#2a2a30] px-4 py-2 font-mono text-xs text-[#8a8a96] hover:text-[#c8a96b]"><FileText size={12} /> RESUME</a></div></div></div></div>;

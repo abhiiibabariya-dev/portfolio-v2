@@ -1,0 +1,20 @@
+node_modules
+dist
+dist-ssr
+
+# Build / tooling caches
+*.tsbuildinfo
+.vite
+
+# Local env + editor
+*.local
+.env
+.env.*
+!.env.example
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# OS
+.DS_Store
+Thumbs.db

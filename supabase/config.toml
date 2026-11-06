@@ -1,0 +1,31 @@
+project_id = "portfolio-booking-platform"
+
+[functions.submit-contact]
+verify_jwt = false
+
+[functions.get-availability]
+verify_jwt = false
+
+[functions.reserve-slot]
+verify_jwt = false
+
+[functions.create-booking]
+verify_jwt = false
+
+[functions.visitor-booking]
+verify_jwt = false
+
+[functions.visitor-booking-action]
+verify_jwt = false
+
+[functions.send-reminders]
+verify_jwt = false
+
+[functions.admin-dashboard]
+verify_jwt = true
+
+[functions.admin-booking-action]
+verify_jwt = true
+
+[functions.admin-availability]
+verify_jwt = true
