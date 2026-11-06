@@ -29,6 +29,7 @@ button, a { -webkit-tap-highlight-color:transparent; }
 .cursor-ring,.cursor-dot { position:fixed; top:0; left:0; pointer-events:none; z-index:110; border-radius:999px; opacity:0; transition:opacity .25s ease; }
 .cursor-ring { width:36px; height:36px; border:1px solid rgba(227,43,60,.75); mix-blend-mode:screen; }
 .cursor-dot { width:6px; height:6px; background:var(--accent); box-shadow:0 0 14px rgba(227,43,60,.7); }
+.cursor-particle { position:fixed; top:0; left:0; width:6px; height:6px; border-radius:999px; pointer-events:none; z-index:109; background:var(--accent); opacity:.55; box-shadow:0 0 10px rgba(227,43,60,.55); }
 @media (pointer:fine) { body:hover .cursor-ring, body:hover .cursor-dot { opacity:1; } a:hover ~ .cursor-ring, button:hover ~ .cursor-ring { transform:scale(1.35); } }
 @media (pointer:coarse) { .cursor-ring,.cursor-dot { display:none; } }
 html[data-motion='off'] .cursor-ring, html[data-motion='off'] .cursor-dot { display:none; }
